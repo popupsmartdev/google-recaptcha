@@ -32,7 +32,6 @@ export const injectGoogleReCaptchaScript = ({
   render,
   badge,
   hl,
-  scriptContainer,
   ...params
 }: InjectGoogleReCaptchaScriptParams) => {
   const googleReCaptchaSrc = generateGoogleReCaptchaScriptSrc({
