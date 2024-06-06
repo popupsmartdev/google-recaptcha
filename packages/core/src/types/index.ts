@@ -6,7 +6,7 @@ export namespace GoogleReCaptcha {
   export type Type = 'v3' | 'v2-invisible' | 'v2-checkbox';
   export type Host = 'recaptcha.net' | 'google.com';
   export interface Script extends Omit<Partial<HTMLScriptElement>, 'src'> {
-    appendTo?: 'body' | 'head';
+    appendTo?: 'body' | 'head' | ShadowRoot;
   }
 
   export type OptWidgetId = number | string;

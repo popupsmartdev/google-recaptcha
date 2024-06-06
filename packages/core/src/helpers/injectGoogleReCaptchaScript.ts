@@ -32,6 +32,7 @@ export const injectGoogleReCaptchaScript = ({
   render,
   badge,
   hl,
+  scriptContainer,
   ...params
 }: InjectGoogleReCaptchaScriptParams) => {
   const googleReCaptchaSrc = generateGoogleReCaptchaScriptSrc({
@@ -41,7 +42,6 @@ export const injectGoogleReCaptchaScript = ({
     hl,
     badge
   });
-
   const script = document.createElement('script');
 
   Object.entries(params).forEach(([key, value]) => {
@@ -50,6 +50,9 @@ export const injectGoogleReCaptchaScript = ({
 
   script.src = googleReCaptchaSrc;
   script.onload = onload;
-
-  document[appendTo].appendChild(script);
+  if (appendTo === 'body' || appendTo === 'head') {
+    document[appendTo].appendChild(script);
+  }else{
+    appendTo.appendChild(script)
+  }
 };
